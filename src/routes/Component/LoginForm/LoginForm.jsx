@@ -22,7 +22,7 @@ const LoginForm = () => {
       setEmail('');
       setPassword('');
       // Можно не делать если есть приватные и публичные роуты
-      navigate('/', { replace: true });
+      // navigate('/', { replace: true });
     } catch (error) {
       // если логин неуспешный, ловим ошибку
       setErrorMessage(error.message || 'Login failed');

@@ -1,10 +1,12 @@
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import Layout from '@/routes/Component/Layout';
-import NotFoundPage from '@/routes/Pages/NotFoundPage';
 import { refreshCurrentUser } from '@/redux/contactsOps';
 import { useGetState } from '@/redux/useGetState';
+import Layout from '@/routes/Component/Layout';
+import NotFoundPage from '@/routes/Pages/NotFoundPage';
+import PrivateRoute from '@/routes/Component/PrivateRoute';
+import RestrictedRoute from '@/routes/Component/RestrictedRoute';
 import style from './App.module.css';
 
 const Home = lazy(() => import('@/routes/Pages/Home'));
@@ -27,12 +29,53 @@ export default function App() {
       <div className={style.app}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
+            {/* <Route index element={<Home />} /> */}
+            {/* <Route path="login" element={<LoginPage />} /> */}
+            {/* <Route path="register" element={<RegisterPage />} /> */}
 
-            <Route path="phonebook" element={<PhonebookDetails />}>
-              <Route path="description" element={<Description />} />
+            <Route
+              index
+              element={
+                <RestrictedRoute>
+                  <Home />
+                </RestrictedRoute>
+              }
+            />
+
+            <Route
+              path="login"
+              element={
+                <RestrictedRoute navigateTo="/phonebook" restricted>
+                  <LoginPage />
+                </RestrictedRoute>
+              }
+            />
+
+            <Route
+              path="register"
+              element={
+                <RestrictedRoute restricted>
+                  <RegisterPage />
+                </RestrictedRoute>
+              }
+            />
+
+            <Route
+              path="phonebook"
+              element={
+                <PrivateRoute navigateTo="/login">
+                  <PhonebookDetails />
+                </PrivateRoute>
+              }
+            >
+              <Route
+                path="description"
+                element={
+                  <PrivateRoute navigateTo="/login">
+                    <Description />
+                  </PrivateRoute>
+                }
+              />
             </Route>
 
             <Route path="*" element={<NotFoundPage />} />

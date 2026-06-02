@@ -23,7 +23,8 @@ const RegisterForm = () => {
       setName('');
       setEmail('');
       setPassword('');
-      navigate('/', { replace: true });
+      // Можно не делать если есть приватные и публичные роуты
+      // navigate('/', { replace: true });
     } catch (error) {
       // если логин неуспешный, ловим ошибку
       setErrorMessage(error.message || 'Register failed');
