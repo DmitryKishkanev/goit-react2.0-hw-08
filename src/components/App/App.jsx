@@ -1,7 +1,7 @@
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import { refreshCurrentUser } from '@/redux/contactsOps';
+import { refreshCurrentUser } from '@/redux/auth/operations';
 import { useGetState } from '@/redux/useGetState';
 import Layout from '@/routes/Component/Layout';
 import NotFoundPage from '@/routes/Pages/NotFoundPage';
@@ -29,10 +29,6 @@ export default function App() {
       <div className={style.app}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            {/* <Route index element={<Home />} /> */}
-            {/* <Route path="login" element={<LoginPage />} /> */}
-            {/* <Route path="register" element={<RegisterPage />} /> */}
-
             <Route
               index
               element={

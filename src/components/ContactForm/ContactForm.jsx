@@ -3,12 +3,12 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 import { useDispatch } from 'react-redux';
 import { useGetState } from '@/redux/useGetState';
-import { addContact } from '@/redux/contactsOps';
+import { addContact } from '@/redux/contacts/operations';
 import style from './ContactForm.module.css';
 
 const FeedbackSchema = object().shape({
   name: string().min(3, 'Too Short!').max(50, 'Too Lonf!').required('Required'),
-  phone: string()
+  number: string()
     .min(3, 'Too Short!')
     .max(50, 'Too Lonf!')
     .required('Required'),
@@ -16,7 +16,7 @@ const FeedbackSchema = object().shape({
 
 const initialValues = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 const ContactForm = () => {
@@ -28,7 +28,7 @@ const ContactForm = () => {
   const handleSubmit = (values, { resetForm }) => {
     const newContact = {
       name: values.name,
-      phone: values.phone,
+      number: values.number,
     };
 
     const isNamePresent = contacts.some(
@@ -75,12 +75,12 @@ const ContactForm = () => {
           <Field
             className={style.field}
             type="tel"
-            name="phone"
+            name="number"
             id={numberFieldId}
           />
           <ErrorMessage
             className={style.errorMessage}
-            name="phone"
+            name="number"
             component="span"
           />
         </div>

@@ -3,12 +3,13 @@ import {
   selectContacts,
   selectLoading,
   selectError,
-  selectFilter,
-  selectFilteredContacts,
+} from './contacts/selectors';
+import { selectFilter, selectFilteredContacts } from './filters/selectors';
+import {
   selectIsLoggedIn,
   selectUserName,
   selectIsRefreshing,
-} from './selectors';
+} from './auth/selectors';
 
 export const useGetState = () => {
   return {

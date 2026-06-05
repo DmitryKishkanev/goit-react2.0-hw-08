@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { logIn } from '@/redux/contactsOps';
+// import { useNavigate } from 'react-router-dom';
+import { logIn } from '@/redux/auth/operations';
 import style from './LoginForm.module.css';
 
 const LoginForm = () => {
@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = async e => {
     e.preventDefault();
