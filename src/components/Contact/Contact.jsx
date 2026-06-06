@@ -3,6 +3,8 @@ import { BiSolidPhone } from 'react-icons/bi';
 import { useDispatch } from 'react-redux';
 import { useGetState } from '@/redux/useGetState';
 import { deleteContact } from '@/redux/contacts/operations';
+import { Box, Button, Typography } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import style from './Contact.module.css';
 
 const Contact = () => {
@@ -13,20 +15,32 @@ const Contact = () => {
     <>
       {filteredContacts.map(({ id, name, number }) => (
         <li className={style.contactItem} key={id}>
-          <div className={style.contactBox}>
-            <p className={style.contactContent}>
+          <Box className={style.contactBox}>
+            <Typography className={style.contactContent}>
               <BiSolidUser />
               {name}:
-            </p>
-            <p className={style.contactContent}>
+            </Typography>
+            <Typography className={style.contactContent}>
               <BiSolidPhone />
               {number}
-            </p>
-          </div>
+            </Typography>
+          </Box>
 
-          <button type="button" onClick={() => dispatch(deleteContact(id))}>
-            Delete
-          </button>
+          <Box className={style.contactButtonBox}>
+            <Button
+              className={style.contactBtn}
+              type="button"
+              variant="outlined"
+              startIcon={<DeleteIcon />}
+              onClick={() => dispatch(deleteContact(id))}
+            >
+              Delete
+            </Button>
+
+            <Button className={style.contactBtn} variant="outlined">
+              Edit
+            </Button>
+          </Box>
         </li>
       ))}
     </>

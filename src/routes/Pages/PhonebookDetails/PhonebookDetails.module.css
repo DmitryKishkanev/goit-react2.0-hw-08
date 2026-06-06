@@ -51,3 +51,31 @@
 .link {
   color: var(--primary-background-color);
 }
+
+.phonebookDetailsContainer {
+  display: flex;
+  align-items: center;
+}
+
+.phonebookDetailsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: 400px;
+  min-height: calc(100vh - 85.98px);
+  padding-top: 20px;
+  background-color: rgb(161, 107, 63);
+}
+
+.phonebookDetailsTitle {
+  color: rgb(82, 38, 0);
+}
+
+.phonebookDetailsOutletBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  min-height: calc(100vh - 85.98px);
+}

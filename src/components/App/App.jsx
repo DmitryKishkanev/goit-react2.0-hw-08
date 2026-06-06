@@ -11,9 +11,13 @@ import style from './App.module.css';
 
 const Home = lazy(() => import('@/routes/Pages/Home'));
 const PhonebookDetails = lazy(() => import('@/routes/Pages/PhonebookDetails'));
-const Description = lazy(() => import('@/routes/Component/Description'));
+// const Description = lazy(() => import('@/routes/Component/Description'));
 const LoginPage = lazy(() => import('@/routes/Pages/LoginPage'));
 const RegisterPage = lazy(() => import('@/routes/Pages/RegisterPage'));
+const NewContactPage = lazy(() => import('@/routes/Component/NewContactPage'));
+const FindContactPage = lazy(
+  () => import('@/routes/Component/FindContactPage'),
+);
 
 export default function App() {
   const dispatch = useDispatch();
@@ -64,11 +68,29 @@ export default function App() {
                 </PrivateRoute>
               }
             >
-              <Route
+              {/* <Route
                 path="description"
                 element={
                   <PrivateRoute navigateTo="/login">
                     <Description />
+                  </PrivateRoute>
+                }
+              /> */}
+
+              <Route
+                path="newContactPage"
+                element={
+                  <PrivateRoute navigateTo="/login">
+                    <NewContactPage />
+                  </PrivateRoute>
+                }
+              />
+
+              <Route
+                path="findContactPage"
+                element={
+                  <PrivateRoute navigateTo="/login">
+                    <FindContactPage />
                   </PrivateRoute>
                 }
               />
