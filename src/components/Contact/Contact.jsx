@@ -16,30 +16,32 @@ const Contact = () => {
       {filteredContacts.map(({ id, name, number }) => (
         <li className={style.contactItem} key={id}>
           <Box className={style.contactBox}>
-            <Typography className={style.contactContent}>
-              <BiSolidUser />
-              {name}:
-            </Typography>
-            <Typography className={style.contactContent}>
-              <BiSolidPhone />
-              {number}
-            </Typography>
-          </Box>
+            <Box className={style.contactTitleBox}>
+              <Typography className={style.contactContent}>
+                <BiSolidUser />
+                {name}:
+              </Typography>
+              <Typography className={style.contactContent}>
+                <BiSolidPhone />
+                {number}
+              </Typography>
+            </Box>
 
-          <Box className={style.contactButtonBox}>
-            <Button
-              className={style.contactBtn}
-              type="button"
-              variant="outlined"
-              startIcon={<DeleteIcon />}
-              onClick={() => dispatch(deleteContact(id))}
-            >
-              Delete
-            </Button>
+            <Box className={style.contactButtonBox}>
+              <Button
+                className={style.contactBtn}
+                type="button"
+                variant="outlined"
+                startIcon={<DeleteIcon />}
+                onClick={() => dispatch(deleteContact(id))}
+              >
+                Delete
+              </Button>
 
-            <Button className={style.contactBtn} variant="outlined">
-              Edit
-            </Button>
+              <Button className={style.contactBtn} variant="outlined">
+                Edit
+              </Button>
+            </Box>
           </Box>
         </li>
       ))}

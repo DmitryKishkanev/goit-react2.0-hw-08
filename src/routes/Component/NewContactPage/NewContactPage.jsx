@@ -22,7 +22,7 @@ const NewContactPage = () => {
       <Box className={style.contactPageBox}>
         {/* строчка для ESLint, что бы он не ругался на backLinkRef.current*/}
         {/* eslint-disable-next-line */}
-        <BackLink to={backLinkLokatonRef.current}>Back</BackLink>
+        <BackLink to={backLinkLokatonRef.current}>Go Back</BackLink>
         <ContactForm />
 
         <Button

@@ -18,6 +18,6 @@
   &:hover,
   &:focus {
     transform: scale(1.09);
-    color: var(--primary-background-color);
+    color: var(--primary-color);
   }
 }

@@ -19,7 +19,7 @@ const FindContactPage = () => {
   const backLinkRef = useRef(location.state?.from ?? '/phonebook');
 
   const handeClose = () => {
-    navigate('/contacts');
+    navigate('/phonebook');
   };
 
   useEffect(() => {
@@ -39,6 +39,7 @@ const FindContactPage = () => {
           <SearchBox />
           <ContactList />
         </Box>
+
         <Button
           className={style.findContactPageButton}
           type="button"

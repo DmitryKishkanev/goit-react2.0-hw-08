@@ -28,47 +28,48 @@ export default function App() {
     dispatch(refreshCurrentUser());
   }, [dispatch]);
 
-  return (
-    !isRefreshing && (
-      <div className={style.app}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route
-              index
-              element={
-                <RestrictedRoute>
-                  <Home />
-                </RestrictedRoute>
-              }
-            />
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
+    <div className={style.app}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <RestrictedRoute>
+                <Home />
+              </RestrictedRoute>
+            }
+          />
 
-            <Route
-              path="login"
-              element={
-                <RestrictedRoute navigateTo="/phonebook" restricted>
-                  <LoginPage />
-                </RestrictedRoute>
-              }
-            />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute navigateTo="/phonebook" restricted>
+                <LoginPage />
+              </RestrictedRoute>
+            }
+          />
 
-            <Route
-              path="register"
-              element={
-                <RestrictedRoute restricted>
-                  <RegisterPage />
-                </RestrictedRoute>
-              }
-            />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute restricted>
+                <RegisterPage />
+              </RestrictedRoute>
+            }
+          />
 
-            <Route
-              path="phonebook"
-              element={
-                <PrivateRoute navigateTo="/login">
-                  <PhonebookDetails />
-                </PrivateRoute>
-              }
-            >
-              {/* <Route
+          <Route
+            path="phonebook"
+            element={
+              <PrivateRoute navigateTo="/login">
+                <PhonebookDetails />
+              </PrivateRoute>
+            }
+          >
+            {/* <Route
                 path="description"
                 element={
                   <PrivateRoute navigateTo="/login">
@@ -77,29 +78,28 @@ export default function App() {
                 }
               /> */}
 
-              <Route
-                path="newContactPage"
-                element={
-                  <PrivateRoute navigateTo="/login">
-                    <NewContactPage />
-                  </PrivateRoute>
-                }
-              />
+            <Route
+              path="newContactPage"
+              element={
+                <PrivateRoute navigateTo="/login">
+                  <NewContactPage />
+                </PrivateRoute>
+              }
+            />
 
-              <Route
-                path="findContactPage"
-                element={
-                  <PrivateRoute navigateTo="/login">
-                    <FindContactPage />
-                  </PrivateRoute>
-                }
-              />
-            </Route>
-
-            <Route path="*" element={<NotFoundPage />} />
+            <Route
+              path="findContactPage"
+              element={
+                <PrivateRoute navigateTo="/login">
+                  <FindContactPage />
+                </PrivateRoute>
+              }
+            />
           </Route>
-        </Routes>
-      </div>
-    )
+
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
