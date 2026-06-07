@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import { Box, Button } from '@mui/material';
 import style from './AuthNav.module.css';
 
 const AuthNav = () => {
   return (
-    <div className={style.authNavBox}>
+    <Box className={style.authNavBox}>
       <NavLink
         to="/login"
         className={({ isActive }) =>
@@ -25,7 +26,7 @@ const AuthNav = () => {
       >
         Sign up
       </NavLink>
-    </div>
+    </Box>
   );
 };
 

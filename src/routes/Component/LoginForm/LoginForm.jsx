@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Box, Typography, TextField, Button } from '@mui/material';
 // import { useNavigate } from 'react-router-dom';
 import { logIn } from '@/redux/auth/operations';
 import style from './LoginForm.module.css';
@@ -30,40 +31,132 @@ const LoginForm = () => {
   };
 
   return (
-    <div className={style.loginFormBox}>
-      <h1 className={style.loginFormTitle}>Log In</h1>
-      <form className={style.loginForm} onSubmit={handleSubmit}>
-        <label className={style.loginFormLabel}>
-          Email
-          <input
-            className={style.loginFormField}
-            type="email"
-            name="email"
-            onChange={e => setEmail(e.target.value)}
-          />
-        </label>
+    <Box className={style.loginFormBox}>
+      <Typography variant="h5" className={style.loginFormTitle}>
+        Log In
+      </Typography>
+      <Box component="form" className={style.loginForm} onSubmit={handleSubmit}>
+        <TextField
+          className={style.loginFormField}
+          label="Email"
+          type="email"
+          name="email"
+          required
+          fullWidth
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          sx={{
+            borderRadius: '4px',
+            backgroundColor: 'white',
+            transition: 'transform 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+            '&:hover': {
+              transform: 'scale(1.05)',
+            },
+            '&:focus': {
+              transform: 'scale(1.05)',
+            },
+            '& .MuiInputBase-input': {
+              padding: '12px 14px',
+              fontSize: '1.2rem', // увеличивает шрифт текста внутри поля
+            },
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                border: 'none',
+              },
+              '&:hover fieldset': {
+                border: 'none',
+              },
+              '&.Mui-focused fieldset': {
+                border: 'none',
+              },
+            },
+            '& .MuiInputLabel-root': {
+              color: 'rgba(0, 0, 0, 0.5)',
+              fontSize: '1.1rem',
+            },
+            '& .MuiInputLabel-root.Mui-focused': {
+              justifyContent: 'center',
+              color: 'rgba(0, 0, 0, 0.5)',
+              fontSize: '1.5rem',
+            },
+          }}
+        />
 
-        <label className={style.loginFormLabel}>
-          Password
-          <input
-            className={style.loginFormField}
-            type="password"
-            name="password"
-            onChange={e => setPassword(e.target.value)}
-          />
-        </label>
+        <TextField
+          className={style.loginFormField}
+          label="Password"
+          type="password"
+          name="password"
+          required
+          fullWidth
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          sx={{
+            borderRadius: '4px',
+            backgroundColor: 'white',
+            transition: 'transform 250ms cubic-bezier(0.4, 0, 0.2, 1)',
 
-        {errorMessage && <p>{`${errorMessage} - try again`}</p>}
+            '&:hover': {
+              transform: 'scale(1.05)',
+            },
+            '&:focus': {
+              transform: 'scale(1.05)',
+            },
+            '& .MuiInputBase-input': {
+              padding: '12px 14px',
+              fontSize: '1.2rem', // увеличивает шрифт текста внутри поля
+            },
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                border: 'none',
+              },
+              '&:hover fieldset': {
+                border: 'none',
+              },
+              '&.Mui-focused fieldset': {
+                border: 'none',
+              },
+            },
+            '& .MuiInputLabel-root': {
+              color: 'rgba(0, 0, 0, 0.5)',
+              fontSize: '1.1rem',
+            },
+            '& .MuiInputLabel-root.Mui-focused': {
+              color: 'rgba(0, 0, 0, 0.5)',
+              fontSize: '1.5rem',
+            },
+          }}
+        />
 
-        <button
+        {errorMessage && (
+          <Typography
+            color="error"
+            variant="body2"
+          >{`${errorMessage} - try again`}</Typography>
+        )}
+
+        <Button
           className={style.loginFormButton}
+          variant="outlined"
           type="submit"
           disabled={!email || !password}
+          sx={{
+            alignSelf: 'center',
+            width: '100px',
+            border: '2px solid white',
+            color: 'white',
+            transition:
+              ' transform 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+            '&:hover': {
+              transform: 'scale(1.09)',
+              borderColor: 'white',
+            },
+          }}
         >
           Log in
-        </button>
-      </form>
-    </div>
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

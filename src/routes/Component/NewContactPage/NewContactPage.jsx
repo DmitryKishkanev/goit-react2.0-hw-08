@@ -26,10 +26,20 @@ const NewContactPage = () => {
         <ContactForm />
 
         <Button
-          className={style.contactPageButton}
+          className={style.contactPageBtn}
           type="button"
           onClick={handeClose}
           variant="outlined"
+          sx={{
+            borderColor: 'rgb(161, 107, 63)',
+            color: 'white',
+            backgroundColor: 'rgba(161, 107, 63, 0.7)',
+            '&:hover': {
+              transform: 'scale(1.09)',
+              borderColor: 'white',
+              color: 'rgb(82, 38, 0)',
+            },
+          }}
         >
           Close
         </Button>

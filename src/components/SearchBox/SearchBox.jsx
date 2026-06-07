@@ -36,6 +36,10 @@ const SearchBox = () => {
           '&.Mui-focused fieldset': {
             borderColor: 'rgb(82, 38, 0)',
           },
+          '& .MuiInputBase-input': {
+            padding: '12px 14px',
+            fontSize: '1.2rem', // увеличивает шрифт текста внутри поля
+          },
         },
       }}
     />

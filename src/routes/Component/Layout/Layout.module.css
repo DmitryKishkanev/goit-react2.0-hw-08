@@ -1,0 +1,29 @@
+.backgroundGuest {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url('@/assets/guestBg.jpg');
+  background-size: cover;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+.backgroundLoggedIn {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url('@/assets/loggedInBg.jpg');
+  background-size: cover;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+.backgroundAuth {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url('@/assets/authBg.jpg');
+  background-size: cover;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}

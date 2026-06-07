@@ -108,12 +108,9 @@ label {
 
 input {
   background-color: rgb(118, 118, 118);
-  color: var(--secondary-color); /* цвет текста внутри всех input */
   border: 1px solid black;
 }
 
 input:-webkit-autofill {
-  -webkit-text-fill-color: var(
-    --secondary-color
-  ); /* цвет текста при автозаполнении */
+  -webkit-text-fill-color: black; /* цвет текста при автозаполнении */
 }

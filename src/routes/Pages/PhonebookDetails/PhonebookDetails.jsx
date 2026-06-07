@@ -1,9 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
-// import BackLink from '@/routes/Component/BackLink';
-// import Phonebook from '@/components/Phonebook';
-// import { useLogOutRedirect } from '@/hooks/useLogOuteRedirect';
 import style from './PhonebookDetails.module.css';
 
 const PhonebookDetails = () => {

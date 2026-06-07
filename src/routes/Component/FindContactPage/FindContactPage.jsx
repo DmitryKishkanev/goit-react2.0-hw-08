@@ -41,7 +41,7 @@ const FindContactPage = () => {
         </Box>
 
         <Button
-          className={style.findContactPageButton}
+          className={style.findContactPageBtn}
           type="button"
           onClick={handeClose}
           variant="outlined"

@@ -26,13 +26,12 @@
   &:hover,
   &:focus {
     transform: scale(1.07);
-    color: var(--primary-background-color);
-    border-color: var(--primary-background-color);
+    color: rgb(82, 38, 0);
+    border-color: rgb(82, 38, 0);
   }
+}
 
-  &.active {
-    color: black;
-    background-color: var(--primary-background-color);
-    border: none;
-  }
+.active {
+  color: rgb(82, 38, 0);
+  border: 2px solid rgb(82, 38, 0);
 }

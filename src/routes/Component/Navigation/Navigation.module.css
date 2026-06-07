@@ -17,17 +17,19 @@
 }
 
 .active {
-  padding: 10px 20px;
+  /* padding: 10px 20px;
   border-radius: 8px;
   background-color: var(--primary-background-color);
-  color: white !important;
+  color: white !important; */
+  color: rgb(124, 58, 0);
 }
 
 .headerLink {
   display: inline-block;
   padding: 6px 10px;
 
-  color: black;
+  /* color: black; */
+  color: white;
 
   transition:
     transform var(--transition-time) var(--transition-type),
@@ -40,11 +42,16 @@
 
   &:hover,
   &:focus {
-    transform: scale(1.07);
-    color: var(--primary-background-color);
+    /* transform: scale(1.07);
+    color: var(--primary-background-color); */
+    text-decoration: none;
+    transform: scale(1.2);
+    color: white;
   }
 
   &.active {
-    color: black;
+    /* color: black; */
+    text-decoration: none;
+    color: rgb(124, 58, 0);
   }
 }

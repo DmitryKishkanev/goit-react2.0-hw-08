@@ -1,5 +1,6 @@
-import { useId } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
+import { Box, Typography, TextField, Button } from '@mui/material';
+import { ToastContainer, toast } from 'react-toastify';
 import { object, string } from 'yup';
 import { useDispatch } from 'react-redux';
 import { useGetState } from '@/redux/useGetState';
@@ -22,8 +23,6 @@ const initialValues = {
 const ContactForm = () => {
   const dispatch = useDispatch();
   const { contacts, isLoading } = useGetState();
-  const nameFieldId = useId();
-  const numberFieldId = useId();
 
   const handleSubmit = (values, { resetForm }) => {
     const newContact = {
@@ -36,60 +35,150 @@ const ContactForm = () => {
     );
 
     if (isNamePresent) {
-      alert(`"${newContact.name}" is already in contacts `);
+      toast.error(`${newContact.name} is already in contacts `, {
+        theme: 'colored',
+      });
+      resetForm();
       return;
     }
 
     dispatch(addContact(newContact));
     resetForm();
+    toast.success('Сontact added successfully', { theme: 'colored' });
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
-    >
-      <Form className={style.form}>
-        <div className={style.fieldBox}>
-          <label className={style.label} htmlFor={nameFieldId}>
-            Name
-          </label>
-          <Field
-            className={style.field}
-            type="text"
-            name="name"
-            id={nameFieldId}
-          />
-          <ErrorMessage
-            className={style.errorMessage}
-            name="name"
-            component="span"
-          />
-        </div>
+    <Box className={style.contactFormWrapper}>
+      <Typography className={style.contactFormTitle} variant="h5">
+        Add a new contact
+      </Typography>
 
-        <div className={style.fieldBox}>
-          <label className={style.label} htmlFor={numberFieldId}>
-            Number
-          </label>
-          <Field
-            className={style.field}
-            type="tel"
-            name="number"
-            id={numberFieldId}
-          />
-          <ErrorMessage
-            className={style.errorMessage}
-            name="number"
-            component="span"
-          />
-        </div>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={FeedbackSchema}
+      >
+        {({ values, errors, touched, handleChange, handleBlur }) => (
+          <Form className={style.form}>
+            <Box className={style.contactFormBox}>
+              <TextField
+                className={style.contactFormTextField}
+                label="Name"
+                name="name"
+                value={values.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.name && Boolean(errors.name)}
+                helperText={touched.name && errors.name}
+                sx={{
+                  borderRadius: '4px',
+                  backgroundColor: 'white',
+                  transition: 'transform 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                  '&:focus': {
+                    transform: 'scale(1.05)',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      border: 'none',
+                    },
+                    '&:hover fieldset': {
+                      border: 'none',
+                    },
+                    '& .MuiInputBase-input': {
+                      padding: '12px 14px',
+                      fontSize: '1.2rem', // увеличивает шрифт текста внутри поля
+                    },
+                    '&.Mui-focused fieldset': {
+                      border: 'none',
+                    },
+                  },
+                  '& .MuiInputLabel-root': {
+                    color: 'rgba(0, 0, 0, 0.5)',
+                    fontSize: '1.1rem',
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: 'rgba(0, 0, 0, 0.5)',
+                    fontSize: '1.5rem',
+                  },
+                }}
+              />
 
-        <button className={style.formButton} type="submit" disabled={isLoading}>
-          {isLoading && '☎'} Add
-        </button>
-      </Form>
-    </Formik>
+              <TextField
+                className={style.contactFormTextField}
+                label="Number"
+                name="number"
+                type="tel"
+                value={values.number}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.number && Boolean(errors.number)}
+                helperText={touched.number && errors.number}
+                sx={{
+                  borderRadius: '4px',
+                  backgroundColor: 'white',
+                  transition: 'transform 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                  '&:focus': {
+                    transform: 'scale(1.05)',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      border: 'none',
+                    },
+                    '&:hover fieldset': {
+                      border: 'none',
+                    },
+                    '& .MuiInputBase-input': {
+                      padding: '12px 14px',
+                      fontSize: '1.2rem', // увеличивает шрифт текста внутри поля
+                    },
+                    '&.Mui-focused fieldset': {
+                      border: 'none',
+                    },
+                  },
+                  '& .MuiInputLabel-root': {
+                    color: 'rgba(0, 0, 0, 0.5)',
+                    fontSize: '1.1rem',
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: 'rgba(0, 0, 0, 0.5)',
+                    fontSize: '1.5rem',
+                  },
+                }}
+              />
+
+              <Button
+                className={style.contactFormBacBtn}
+                variant="outlined"
+                type="submit"
+                disabled={!values.name || !values.number || isLoading}
+                sx={{
+                  margin: '0 auto',
+                  color: 'white',
+                  borderColor: 'white',
+                  transition:
+                    ' transform 250ms cubic-bezier(0.4, 0, 0.2, 1),  color 250ms cubic-bezier(0.4, 0, 0.2, 1),  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&:hover': {
+                    transform: 'scale(1.09)',
+                    borderColor: 'rgb(82, 38, 0)',
+                    color: 'rgb(82, 38, 0)',
+                  },
+                }}
+              >
+                {isLoading && '☎'} Add
+              </Button>
+            </Box>
+          </Form>
+        )}
+      </Formik>
+
+      <ToastContainer position="bottom-center" autoClose={5000} />
+    </Box>
   );
 };
 
