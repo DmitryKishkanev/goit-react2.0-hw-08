@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
+import { ToastContainer } from 'react-toastify';
 import SearchBox from '@/components/SearchBox';
 import ContactList from '@/components/ContactList';
 import BackLink from '@/routes/Component/BackLink';
@@ -49,6 +50,8 @@ const FindContactPage = () => {
           close
         </Button>
       </Box>
+
+      <ToastContainer position="bottom-center" autoClose={5000} />
     </Box>
   );
 };

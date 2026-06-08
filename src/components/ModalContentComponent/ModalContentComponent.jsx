@@ -1,4 +1,4 @@
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { object, string } from 'yup';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
@@ -61,8 +61,8 @@ const ModalContentComponent = ({ onClose, contactId, open }) => {
     );
 
     resetForm();
-    onClose();
     toast.success('Сontact added successfully', { theme: 'colored' });
+    onClose();
   };
 
   return (
@@ -106,6 +106,9 @@ const ModalContentComponent = ({ onClose, contactId, open }) => {
               </DialogContent>
 
               <DialogActions>
+                <Button variant="outlined" type="button" onClick={onClose}>
+                  Cancel
+                </Button>
                 <Button
                   className={style.modalButton}
                   type="submit"
@@ -119,8 +122,6 @@ const ModalContentComponent = ({ onClose, contactId, open }) => {
           )}
         </Formik>
       </Dialog>
-
-      <ToastContainer position="top-center" autoClose={5000} />
     </>
   );
 };

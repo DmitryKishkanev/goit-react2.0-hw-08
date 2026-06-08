@@ -11,7 +11,7 @@ import style from './App.module.css';
 
 const Home = lazy(() => import('@/routes/Pages/Home'));
 const PhonebookDetails = lazy(() => import('@/routes/Pages/PhonebookDetails'));
-// const Description = lazy(() => import('@/routes/Component/Description'));
+const Description = lazy(() => import('@/routes/Component/Description'));
 const LoginPage = lazy(() => import('@/routes/Pages/LoginPage'));
 const RegisterPage = lazy(() => import('@/routes/Pages/RegisterPage'));
 const NewContactPage = lazy(() => import('@/routes/Component/NewContactPage'));
@@ -35,13 +35,22 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
-            index
+            path="/"
             element={
               <RestrictedRoute>
                 <Home />
               </RestrictedRoute>
             }
-          />
+          >
+            <Route
+              path="description"
+              element={
+                <RestrictedRoute navigateTo="/">
+                  <Description />
+                </RestrictedRoute>
+              }
+            />
+          </Route>
 
           <Route
             path="login"
@@ -69,15 +78,6 @@ export default function App() {
               </PrivateRoute>
             }
           >
-            {/* <Route
-                path="description"
-                element={
-                  <PrivateRoute navigateTo="/login">
-                    <Description />
-                  </PrivateRoute>
-                }
-              /> */}
-
             <Route
               path="newContactPage"
               element={

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { useLogOutRedirect } from '@/hooks/useLogOuteRedirect';
 import { useGetState } from '@/redux/useGetState';
 import { Box, Button, Typography } from '@mui/material';
@@ -15,6 +15,7 @@ const Home = () => {
         <Box
           sx={{
             display: 'flex',
+            // flexDirection: 'column',
             justifyContent: 'left',
             alignItems: 'center',
             minHeight: 'calc(100vh - 110px)',
@@ -26,6 +27,13 @@ const Home = () => {
           >
             Phonebook welcome page
           </Typography>
+          <Box>
+            <Button component={NavLink} to="/description" variant="outlined">
+              Description
+            </Button>
+
+            <Outlet />
+          </Box>
         </Box>
       ) : (
         <Box
