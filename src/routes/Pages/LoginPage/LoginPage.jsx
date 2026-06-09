@@ -1,5 +1,6 @@
 import { useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Box } from '@mui/material';
 import LoginForm from '@/routes/Component/LoginForm';
 import style from './LoginPage.module.css';
 
@@ -34,9 +35,9 @@ const LoginPage = () => {
   }, [handleKeyDown]);
 
   return (
-    <div className={style.loginPageContainer} onClick={handleBackdropClick}>
+    <Box className={style.loginPageContainer} onClick={handleBackdropClick}>
       <LoginForm />
-    </div>
+    </Box>
   );
 };
 

@@ -29,7 +29,7 @@ const Contact = () => {
   return (
     <>
       {filteredContacts.map(({ id, name, number }) => (
-        <li className={style.contactItem} key={id}>
+        <Box component="li" className={style.contactItem} key={id}>
           <Box className={style.contactBox}>
             <Box className={style.contactTitleBox}>
               <Typography className={style.contactContent}>
@@ -70,7 +70,7 @@ const Contact = () => {
               contactId={selectedContactId}
             />
           )}
-        </li>
+        </Box>
       ))}
     </>
   );

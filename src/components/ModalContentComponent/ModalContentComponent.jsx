@@ -106,7 +106,12 @@ const ModalContentComponent = ({ onClose, contactId, open }) => {
               </DialogContent>
 
               <DialogActions>
-                <Button variant="outlined" type="button" onClick={onClose}>
+                <Button
+                  className={style.modalButton}
+                  variant="outlined"
+                  type="button"
+                  onClick={onClose}
+                >
                   Cancel
                 </Button>
                 <Button

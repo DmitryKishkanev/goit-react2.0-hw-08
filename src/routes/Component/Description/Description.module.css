@@ -2,20 +2,27 @@
   display: flex;
   flex-direction: column;
   padding: 15px 15px;
+  height: 100%;
 
+  background-color: rgba(161, 107, 63, 0.7);
   box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.2);
 }
 
 .text {
   margin-top: 0;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1.19;
   letter-spacing: 0.03em;
+  color: rgb(82, 38, 0);
 }
 
 .descriptionButton {
   margin-left: auto;
+  margin-top: auto;
+
+  border-color: white;
+  color: white;
 
   transition:
     transform var(--transition-time) var(--transition-type),
@@ -25,7 +32,7 @@
   &:hover,
   &:focus {
     transform: scale(1.07);
-    color: var(--primary-background-color);
-    border-color: var(--primary-background-color);
+    color: rgb(82, 38, 0);
+    border-color: rgb(82, 38, 0);
   }
 }

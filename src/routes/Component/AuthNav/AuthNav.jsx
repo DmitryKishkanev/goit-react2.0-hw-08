@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import style from './AuthNav.module.css';
 
 const AuthNav = () => {

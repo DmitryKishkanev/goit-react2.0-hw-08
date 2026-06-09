@@ -17,10 +17,6 @@
 }
 
 .active {
-  /* padding: 10px 20px;
-  border-radius: 8px;
-  background-color: var(--primary-background-color);
-  color: white !important; */
   color: rgb(124, 58, 0);
 }
 

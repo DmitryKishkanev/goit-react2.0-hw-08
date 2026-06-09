@@ -74,7 +74,6 @@ button {
 button:hover {
   transform: scale(1.07);
   border-color: var(--secondary-color);
-  color: var(--secondary-color);
 }
 button:focus,
 button:focus-visible {

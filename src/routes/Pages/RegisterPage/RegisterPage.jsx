@@ -1,5 +1,6 @@
 import { useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Box } from '@mui/material';
 import RegisterForm from '@/routes/Component/RegisterForm';
 import style from './RegisterPage.module.css';
 
@@ -30,9 +31,9 @@ const RegisterPage = () => {
   }, [handleKeyDown]);
 
   return (
-    <div className={style.registerPageContainer} onClick={handleBackdropClick}>
+    <Box className={style.registerPageContainer} onClick={handleBackdropClick}>
       <RegisterForm />
-    </div>
+    </Box>
   );
 };
 

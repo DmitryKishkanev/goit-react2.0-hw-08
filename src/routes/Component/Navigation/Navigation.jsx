@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { Box, Button, Typography } from '@mui/material';
 import { useGetState } from '@/redux/useGetState';
 import style from './Navigation.module.css';
 
@@ -7,8 +8,8 @@ const Navigation = () => {
 
   return (
     <>
-      <ul className={style.headerList}>
-        <li className={style.headerItem}>
+      <Box component="ul" className={style.headerList}>
+        <Box component="li" className={style.headerItem}>
           <NavLink
             className={({ isActive }) =>
               isActive
@@ -19,10 +20,10 @@ const Navigation = () => {
           >
             Home
           </NavLink>
-        </li>
+        </Box>
 
         {isLoggedIn && (
-          <li className={style.headerItem}>
+          <Box component="li" className={style.headerItem}>
             <NavLink
               className={({ isActive }) =>
                 isActive
@@ -33,9 +34,9 @@ const Navigation = () => {
             >
               Phonebook
             </NavLink>
-          </li>
+          </Box>
         )}
-      </ul>
+      </Box>
     </>
   );
 };

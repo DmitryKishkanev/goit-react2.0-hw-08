@@ -1,6 +1,7 @@
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
+import { Box } from '@mui/material';
 import { refreshCurrentUser } from '@/redux/auth/operations';
 import { useGetState } from '@/redux/useGetState';
 import Layout from '@/routes/Component/Layout';
@@ -29,9 +30,9 @@ export default function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Typography component="b">Refreshing user...</Typography>
   ) : (
-    <div className={style.app}>
+    <Box className={style.app}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
@@ -100,6 +101,6 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-    </div>
+    </Box>
   );
 }
