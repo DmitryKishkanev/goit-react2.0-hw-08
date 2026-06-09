@@ -1,7 +1,7 @@
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { refreshCurrentUser } from '@/redux/auth/operations';
 import { useGetState } from '@/redux/useGetState';
 import Layout from '@/routes/Component/Layout';
