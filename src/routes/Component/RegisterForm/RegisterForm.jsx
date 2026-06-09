@@ -77,7 +77,7 @@ const RegisterForm = () => {
               },
             },
             '& .MuiInputLabel-root': {
-              color: 'rgba(0, 0, 0, 0.5)',
+              color: 'rgb(199, 141, 75)',
               fontSize: '1.1rem',
             },
             '& .MuiInputLabel-root.Mui-focused': {
@@ -123,7 +123,7 @@ const RegisterForm = () => {
               },
             },
             '& .MuiInputLabel-root': {
-              color: 'rgba(0, 0, 0, 0.5)',
+              color: 'rgb(199, 141, 75)',
               fontSize: '1.1rem',
             },
             '& .MuiInputLabel-root.Mui-focused': {
@@ -170,7 +170,7 @@ const RegisterForm = () => {
               },
             },
             '& .MuiInputLabel-root': {
-              color: 'rgba(0, 0, 0, 0.5)',
+              color: 'rgb(199, 141, 75)',
               fontSize: '1.1rem',
             },
             '& .MuiInputLabel-root.Mui-focused': {
