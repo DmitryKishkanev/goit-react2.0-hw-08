@@ -64,3 +64,12 @@
     color: rgb(82, 38, 0);
   }
 }
+
+.modalBtn {
+  transition: transform var(--transition-time) var(--transition-type);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.09);
+  }
+}
